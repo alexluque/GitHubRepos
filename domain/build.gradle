@@ -1,0 +1,9 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation jetbrainsLibs.kotlinStdlib
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
