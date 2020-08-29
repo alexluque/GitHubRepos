@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation project(":domain")
+    implementation project(":data")
+
+    implementation jetbrainsLibs.kotlinStdlib
+    implementation squareLibs.retrofit
+}
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
