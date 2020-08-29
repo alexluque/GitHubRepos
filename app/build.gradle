@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+    buildFeatures.dataBinding = true
+
+    defaultConfig {
+        applicationId "com.alexluque.githubrepos"
+        minSdkVersion 15
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        vectorDrawables.useSupportLibrary true
+
+        testInstrumentationRunner "com.alexluque.githubrepos.common.UiRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.schemaLocation"  : "$projectDir/schemas".toString(),
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    packagingOptions {
+        exclude 'META-INF/atomicfu.kotlin_module'
+    }
+
+    configurations.all() {
+        resolutionStrategy.force "org.antlr:antlr4-runtime:$antlr4_version"
+        resolutionStrategy.force "org.antlr:antlr4-tool:$antlr4_version"
+    }
+
+    configurations.all() {
+        resolutionStrategy.force "org.antlr:antlr4-runtime:$antlr4_version"
+        resolutionStrategy.force "org.antlr:antlr4-tool:$antlr4_version"
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(":domain")
+    implementation project(":data")
+    implementation project(":usecases")
+
+    implementation jetbrainsLibs.values()
+    implementation androidLibs.values()
+    kapt kaptLibs.values()
+    implementation googleLibs.values()
+    implementation squareLibs.values()
+    implementation libs.values()
+    implementation testLibs.values()
+    implementation androidTestLibs.values()
+    kaptTest kaptAndroidTest.values()
+    kaptAndroidTest kaptAndroidTest.values()
+}
