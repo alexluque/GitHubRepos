@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GitHub Repos</string>
+    <string name="no_internet">No hay conexión a Internet…</string>
+    <string name="repo_name">Nombre del repositorio</string>
+    <string name="owner_login">Login del propietario</string>
+    <string name="repo_description">Descripción del repo</string>
+    <string name="empty_repo_list">La lista de repos está vacía</string>
+    <string name="open_page">Abrir Página</string>
+    <string name="loading_local_data">El dispositivo no está conectado a Internet. Cargando datos desde local…</string>
+</resources>
