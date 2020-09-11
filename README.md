@@ -13,3 +13,5 @@ Navigate through a company's GitHub repos following the best constraints:
 * The app runs on a ICS+ device.
 * Clean Architecture
 * MVVM
+* DI with Dagger2
+* Multi language support (English & Spanish)
